@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Report evidence links that no longer resolve. Writes link_report.md. Never edits data."""
 import json, urllib.request
-d = json.load(open("site/data.json"))
+d = json.load(open("docs/data.json"))
 bad = []
 for c in d["claims"]:
     for e in c["evidence"] + [c["source"]]:

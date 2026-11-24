@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate site/data.json. Stdlib only. Exit 1 on any problem."""
+"""Validate docs/data.json. Stdlib only. Exit 1 on any problem."""
 import json, re, sys
 STATUS = {"untested","replicated","partially_replicated","not_reproduced","contradicted"}
 REQ = ["id","title","claim","method","benchmark","source","status","summary","evidence","last_checked","checked_by"]
-d = json.load(open("site/data.json"))
+d = json.load(open("docs/data.json"))
 errs, ids = [], set()
 for c in d["claims"]:
     cid = c.get("id", "?")

@@ -4,7 +4,7 @@ A public, evidence-linked tracker of whether headline robot-learning and VLA cla
 
 Papers report big numbers. Teams then spend weeks building on a method before learning it does not reproduce on their robot or setup. Leaderboards track reported scores. This tracks what happened when someone else tried.
 
-**Site:** https://studio-glhf.github.io/claim-ledger/ (served from `site/` by GitHub Pages)
+**Site:** https://studio-glhf.github.io/claim-ledger/ (served from `docs/` by GitHub Pages)
 
 ## Operated with an AI agent
 
@@ -23,9 +23,9 @@ Open an issue with the [correction form](../../issues/new?template=correction.ym
 
 ## Layout
 
-- `site/data.json`: the entries. `schema/claim.schema.json`: their format.
+- `docs/data.json`: the entries. `schema/claim.schema.json`: their format.
 - `scripts/validate.py`: checks the data. `scripts/check_links.py`: finds dead links.
-- `.github/workflows/weekly.yml`: validates, link-checks, deploys. Runs weekly and on every push.
+- `.github/workflows/weekly.yml`: validates and link-checks. Runs weekly and on every push (Pages serves `docs/` straight from main).
 - `docs/OPERATIONS.md`: the agent's weekly loop and what is and is not automated.
 
 ## License
