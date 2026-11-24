@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim Ledger: did that robot-learning result hold up?</title>
+<meta name="description" content="A public, evidence-linked tracker of whether headline robot-learning and VLA claims have been independently reproduced.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Claim Ledger</h1>
+    <p class="lede">Did that robot-learning result hold up? A public tracker of headline claims and what independent attempts found, with a link to the evidence for every entry.</p>
+    <p class="agent">Operated with an AI agent. The agent collects public sources and drafts entries; every entry cites its evidence so you can check it yourself. <a href="https://github.com/studio-glhf/claim-ledger/issues/new?template=correction.yml">Submit a correction or replication</a>.</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="controls">
+    <input id="q" type="search" placeholder="Search method, benchmark, claim" aria-label="Search">
+    <select id="st" aria-label="Filter by status">
+      <option value="">All statuses</option>
+      <option value="replicated">Replicated</option>
+      <option value="partially_replicated">Partially replicated</option>
+      <option value="not_reproduced">Not reproduced</option>
+      <option value="contradicted">Contradicted</option>
+      <option value="untested">Untested</option>
+    </select>
+  </section>
+  <p id="count" class="muted"></p>
+  <div id="list"></div>
+  <section class="how">
+    <h2>How to read the statuses</h2>
+    <dl>
+      <dt><span class="pill replicated">Replicated</span></dt><dd>An independent run matched the claim within reasonable noise.</dd>
+      <dt><span class="pill partially_replicated">Partially replicated</span></dt><dd>Independent runs match on some parts or give mixed results.</dd>
+      <dt><span class="pill not_reproduced">Not reproduced</span></dt><dd>An attempt did not match. This does not mean the claim is false. Setup, versions and hardware often explain gaps.</dd>
+      <dt><span class="pill contradicted">Contradicted</span></dt><dd>A cited source directly shows the claim is wrong, such as an author erratum or a controlled re-test. Used rarely.</dd>
+      <dt><span class="pill untested">Untested</span></dt><dd>Tracked, but no independent attempt found yet.</dd>
+    </dl>
+    <p>Read the <a href="https://github.com/studio-glhf/claim-ledger/blob/main/docs/POLICY.md">editorial policy</a>. Entries reflect public sources on the "last checked" date and can be wrong or out of date. Authors are welcome to respond through the correction form.</p>
+  </section>
+</main>
+<footer class="wrap">
+  <p>Data: CC BY 4.0. Code: MIT. <a href="https://github.com/studio-glhf/claim-ledger">Source and data on GitHub</a>. <span id="upd"></span></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

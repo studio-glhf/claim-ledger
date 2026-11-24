@@ -1,0 +1,18 @@
+name: Correction or replication report
+description: Report an error, or submit a replication attempt for a listed claim
+labels: [correction]
+body:
+  - type: input
+    attributes: {label: Claim ID (for example CL-0001), description: Or write "new claim" and describe it below}
+    validations: {required: true}
+  - type: dropdown
+    attributes:
+      label: Type
+      options: [Error in an entry, Replication attempt, Missing evidence, Author response, New claim to track]
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: What happened, description: "What you ran, what you saw, and what differed. Numbers help."}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Public links, description: "Links to code, logs, papers or threads. Evidence must be publicly viewable."}
+    validations: {required: true}
