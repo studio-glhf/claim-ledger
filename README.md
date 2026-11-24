@@ -28,6 +28,7 @@ Open an issue with the [correction form](../../issues/new?template=correction.ym
 - `scripts/build.py`: regenerates RSS, JSON feed and status badges. Run after editing data.
 - `.github/workflows/weekly.yml`: validates and link-checks. Runs weekly and on every push (Pages serves `docs/` straight from main).
 - `docs/OPERATIONS.md`: the agent's weekly loop and what is and is not automated.
+- `docs/ROADMAP.md`: goals, 30/60/90-day milestones, weekly plan, metrics, risks.
 
 ## License
 
