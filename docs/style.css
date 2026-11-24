@@ -29,3 +29,4 @@ dl{display:grid;grid-template-columns:190px 1fr;gap:8px 14px;align-items:start;f
 dt,dd{margin:0}
 footer{padding:20px;color:var(--muted);font-size:.85rem}
 @media(max-width:600px){dl{grid-template-columns:1fr}.controls{flex-direction:column}}
+code{font-size:.78rem;word-break:break-all;display:block;margin-top:6px;background:#f2f4f6;padding:6px 8px;border-radius:6px}summary{cursor:pointer}

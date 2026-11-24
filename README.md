@@ -25,6 +25,7 @@ Open an issue with the [correction form](../../issues/new?template=correction.ym
 
 - `docs/data.json`: the entries. `schema/claim.schema.json`: their format.
 - `scripts/validate.py`: checks the data. `scripts/check_links.py`: finds dead links.
+- `scripts/build.py`: regenerates RSS, JSON feed and status badges. Run after editing data.
 - `.github/workflows/weekly.yml`: validates and link-checks. Runs weekly and on every push (Pages serves `docs/` straight from main).
 - `docs/OPERATIONS.md`: the agent's weekly loop and what is and is not automated.
 

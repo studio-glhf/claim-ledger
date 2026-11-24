@@ -1,0 +1,29 @@
+{
+ "version": "https://jsonfeed.org/version/1.1",
+ "title": "Claim Ledger",
+ "home_page_url": "https://studio-glhf.github.io/claim-ledger/",
+ "feed_url": "https://studio-glhf.github.io/claim-ledger/feed.json",
+ "items": [
+  {
+   "id": "CL-0001",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0001",
+   "title": "[partial] OpenVLA fine-tuned reaches 76.5% average success on LIBERO",
+   "content_text": "Third-party runs land close on some suites and far off on others. One user's single-trial run averaged 73.75% (Goal 74.2, Long 48.4). A separate single-seed, 100-rollout-per-suite run using the official checkpoints averaged 67.0%, with Object at 60.0% against 88.4% reported, while Long (53.0%) and Goal (77.0%) were near the reported numbers. Neither run is a full 3-seed, 50-episode replication, so differences may be noise, hardware or rendering. Not enough to call the claim wrong.",
+   "date_modified": "2026-11-24T00:00:00Z"
+  },
+  {
+   "id": "CL-0002",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0002",
+   "title": "[replicated] LeRobot reproduces Pi0.5 LIBERO results (97.5% average)",
+   "content_text": "An outside user first measured 71.75% average with a non-documented evaluation setup. After setting policy.n_action_steps=10 as the docs specify, they reported 96.75% average, close to the claimed 97.5%. This is one independent run using the same LeRobot evaluation harness, so it confirms the documented recipe works, not that results transfer to other simulators or hardware. The setting matters a lot, so check it when comparing numbers.",
+   "date_modified": "2026-11-24T00:00:00Z"
+  },
+  {
+   "id": "CL-0003",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0003",
+   "title": "[not reproduced] LeRobot Pi0 LIBERO checkpoint matches reported success rates",
+   "content_text": "An outside user measured 64.75% average (Spatial 69, Object 72, Goal 83, Long 35) and, after changing MuJoCo version and seed, 71%. They described this as 10 to 20 points under the reported figures. A LeRobot maintainer replied in the thread that the Pi0 checkpoint needs more training to reach paper-level results. The reported numbers were not independently checked by this ledger. Status means a third-party attempt did not match and the maintainers acknowledged a gap, not that anyone misreported.",
+   "date_modified": "2026-11-24T00:00:00Z"
+  }
+ ]
+}
