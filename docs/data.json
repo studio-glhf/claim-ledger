@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "claims": [
     {
       "id": "CL-0001",
@@ -7,13 +7,24 @@
       "claim": "OpenVLA fine-tuned per suite scores 84.7% (Spatial), 88.4% (Object), 79.2% (Goal), 53.7% (Long), 76.5% average, as a mean over 3 seeds.",
       "method": "OpenVLA",
       "benchmark": "LIBERO",
-      "source": {"label": "OpenVLA README, LIBERO section", "url": "https://github.com/openvla/openvla"},
+      "source": {
+        "label": "OpenVLA README, LIBERO section",
+        "url": "https://github.com/openvla/openvla"
+      },
       "paper": "https://arxiv.org/abs/2406.09246",
       "status": "partially_replicated",
       "summary": "Third-party runs land close on some suites and far off on others. One user's single-trial run averaged 73.75% (Goal 74.2, Long 48.4). A separate single-seed, 100-rollout-per-suite run using the official checkpoints averaged 67.0%, with Object at 60.0% against 88.4% reported, while Long (53.0%) and Goal (77.0%) were near the reported numbers. Neither run is a full 3-seed, 50-episode replication, so differences may be noise, hardware or rendering. Not enough to call the claim wrong.",
       "evidence": [
-        {"type": "issue", "label": "openvla/openvla issue #142: single-trial retrain, 73.75% average", "url": "https://github.com/openvla/openvla/issues/142"},
-        {"type": "repo", "label": "lz-googlefycy/openvla-libero: official checkpoints, 100 rollouts per suite, 67.0% average", "url": "https://github.com/lz-googlefycy/openvla-libero"}
+        {
+          "type": "issue",
+          "label": "openvla/openvla issue #142: single-trial retrain, 73.75% average",
+          "url": "https://github.com/openvla/openvla/issues/142"
+        },
+        {
+          "type": "repo",
+          "label": "lz-googlefycy/openvla-libero: official checkpoints, 100 rollouts per suite, 67.0% average",
+          "url": "https://github.com/lz-googlefycy/openvla-libero"
+        }
       ],
       "last_checked": "2026-11-24",
       "checked_by": "Claim Ledger agent, reviewed against the cited pages"
@@ -24,30 +35,54 @@
       "claim": "LeRobot's lerobot/pi05_libero_finetuned checkpoint reproduces published Pi0.5 LIBERO performance: 97.0 Spatial, 99.0 Object, 98.0 Goal, 96.0 Long, 97.5 average, versus 96.85 average for OpenPI.",
       "method": "Pi0.5 (LeRobot port)",
       "benchmark": "LIBERO",
-      "source": {"label": "LeRobot LIBERO docs, Reproducing published results", "url": "https://huggingface.co/docs/lerobot/en/libero"},
+      "source": {
+        "label": "LeRobot LIBERO docs, Reproducing published results",
+        "url": "https://huggingface.co/docs/lerobot/en/libero"
+      },
       "paper": null,
       "status": "replicated",
-      "summary": "An outside user first measured 71.75% average with a non-documented evaluation setup. After setting policy.n_action_steps=10 as the docs specify, they reported 96.75% average, close to the claimed 97.5%. This is one independent run using the same LeRobot evaluation harness, so it confirms the documented recipe works, not that results transfer to other simulators or hardware. The setting matters a lot, so check it when comparing numbers.",
+      "summary": "One outside evaluator first measured 71.75% average with a non-documented setup. After setting policy.n_action_steps=10 as the docs specify, they reported 96.75% average against the documented 97.5%, a near match from a single run with 10 episodes per task. One evaluator on the same LeRobot harness is limited evidence: it does not show the result holds across seeds, simulators or hardware. The n_action_steps setting changes results a lot, so check it when comparing numbers.",
       "evidence": [
-        {"type": "issue", "label": "huggingface/lerobot issue #2114: 71.75% then 96.75% after documented n_action_steps=10", "url": "https://github.com/huggingface/lerobot/issues/2114"}
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2114: 71.75% then 96.75% after documented n_action_steps=10",
+          "url": "https://github.com/huggingface/lerobot/issues/2114"
+        }
       ],
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "checked_by": "Claim Ledger agent, reviewed against the cited pages"
     },
     {
       "id": "CL-0003",
       "title": "LeRobot Pi0 LIBERO checkpoint matches reported success rates",
-      "claim": "lerobot/pi0_libero_finetuned achieves the LIBERO success rates listed in the LeRobot leaderboard and the original repository.",
+      "claim": "lerobot/pi0_libero_finetuned achieves LIBERO success rates in line with those reported for it. The four-suite target is unverified: the reporter in issue #2114 cites a leaderboard and the original repository, and no contemporaneous primary score table for this exact checkpoint was found on its Hugging Face model card (checked 2026-11-25) or in the LeRobot LIBERO docs, whose published results table covers Pi0.5 only.",
       "method": "Pi0 (LeRobot port)",
       "benchmark": "LIBERO",
-      "source": {"label": "Claim as described in huggingface/lerobot issue #2114", "url": "https://github.com/huggingface/lerobot/issues/2114"},
+      "source": {
+        "label": "Claim as described in huggingface/lerobot issue #2114 (target figures not independently pinned)",
+        "url": "https://github.com/huggingface/lerobot/issues/2114"
+      },
       "paper": null,
       "status": "not_reproduced",
-      "summary": "An outside user measured 64.75% average (Spatial 69, Object 72, Goal 83, Long 35) and, after changing MuJoCo version and seed, 71%. They described this as 10 to 20 points under the reported figures. A LeRobot maintainer replied in the thread that the Pi0 checkpoint needs more training to reach paper-level results. The reported numbers were not independently checked by this ledger. Status means a third-party attempt did not match and the maintainers acknowledged a gap, not that anyone misreported.",
+      "summary": "Observation 1 (four suites, issue #2114): an outside user measured 64.75% average (Spatial 69, Object 72, Goal 83, Long 35) and, after changing MuJoCo version and seed, 71%, which they described as 10 to 20 points under the figures they were comparing to. A LeRobot maintainer replied that the Pi0 checkpoint needs more training to reach paper-level results. Observation 2 (LIBERO-Goal only, issue #2156, a different user): about 75% with n_action_steps=50 and about 90% with n_action_steps=10 for the same checkpoint. This is one suite, so it says nothing about the other three. Together: results for this checkpoint depend strongly on evaluation settings, and the reference target is not pinned here, so this ledger cannot say how large the gap is. 'Not reproduced' reflects a third-party attempt that did not match what the reporter expected, not that anything was misreported. Checkpoint versions may also have changed since (the model card now names a v044 variant).",
       "evidence": [
-        {"type": "issue", "label": "huggingface/lerobot issue #2114: 64.75% then 71%, maintainer comment on needing more training", "url": "https://github.com/huggingface/lerobot/issues/2114"}
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2114: 64.75% then 71%, maintainer comment on needing more training",
+          "url": "https://github.com/huggingface/lerobot/issues/2114"
+        },
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2156: LIBERO-Goal only, ~75% (n_action_steps=50) vs ~90% (n_action_steps=10); maintainer describes multiple training runs",
+          "url": "https://github.com/huggingface/lerobot/issues/2156"
+        },
+        {
+          "type": "other",
+          "label": "Hugging Face model card lerobot/pi0_libero_finetuned: no four-suite score table found",
+          "url": "https://huggingface.co/lerobot/pi0_libero_finetuned"
+        }
       ],
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "checked_by": "Claim Ledger agent, reviewed against the cited pages"
     }
   ]
