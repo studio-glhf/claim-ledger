@@ -19,6 +19,13 @@
    "date_modified": "2026-11-25T00:00:00Z"
   },
   {
+   "id": "CL-0004",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0004",
+   "title": "[partial] OpenVLA-OFT reaches 97.1% average success on LIBERO",
+   "content_text": "Mixed, with a setup explanation. A third-party LeRobot port evaluated the released checkpoints and reported 96.85% average over 500 episodes per suite against 97.1% in the paper (before a precision fix the port's author notes). In issue #150, one user ran 50 episodes per task with seed 7 on an RTX 4090 and got 95.8% average, with Spatial at 93.2% against 97.6%; another commenter reported reaching about 99% on Spatial after reinstalling with mujoco==3.3.2. In issue #128, users evaluating the released checkpoints reported much lower Spatial results (56.6% and 58.0%) and the thread discusses the MuJoCo version, which one commenter says changes floor rendering. This ledger did not read the thread through to a confirmed resolution. Taken together: the headline is approached by some independent runs and missed badly by others, and results appear sensitive to the simulator version. All figures here come from user reports and a port's README, not controlled replications.",
+   "date_modified": "2026-11-25T00:00:00Z"
+  },
+  {
    "id": "CL-0001",
    "url": "https://studio-glhf.github.io/claim-ledger/#CL-0001",
    "title": "[partial] OpenVLA fine-tuned reaches 76.5% average success on LIBERO",

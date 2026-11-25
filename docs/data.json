@@ -84,6 +84,39 @@
       ],
       "last_checked": "2026-11-25",
       "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+    },
+    {
+      "id": "CL-0004",
+      "title": "OpenVLA-OFT reaches 97.1% average success on LIBERO",
+      "claim": "OpenVLA-OFT with task-specific policies reaches 97.1% average success across the four LIBERO suites (97.6% on LIBERO-Spatial), averaged over three random seeds per the authors; a single policy trained on all four suites scores 96.8%.",
+      "method": "OpenVLA-OFT",
+      "benchmark": "LIBERO",
+      "source": {
+        "label": "openvla-oft LIBERO.md",
+        "url": "https://github.com/moojink/openvla-oft/blob/main/LIBERO.md"
+      },
+      "paper": null,
+      "status": "partially_replicated",
+      "summary": "Mixed, with a setup explanation. A third-party LeRobot port evaluated the released checkpoints and reported 96.85% average over 500 episodes per suite against 97.1% in the paper (before a precision fix the port's author notes). In issue #150, one user ran 50 episodes per task with seed 7 on an RTX 4090 and got 95.8% average, with Spatial at 93.2% against 97.6%; another commenter reported reaching about 99% on Spatial after reinstalling with mujoco==3.3.2. In issue #128, users evaluating the released checkpoints reported much lower Spatial results (56.6% and 58.0%) and the thread discusses the MuJoCo version, which one commenter says changes floor rendering. This ledger did not read the thread through to a confirmed resolution. Taken together: the headline is approached by some independent runs and missed badly by others, and results appear sensitive to the simulator version. All figures here come from user reports and a port's README, not controlled replications.",
+      "evidence": [
+        {
+          "type": "repo",
+          "label": "tc-huang/lerobot-policy-openvla-oft: 96.85% average vs 97.1% in the paper, 500 episodes per suite",
+          "url": "https://github.com/tc-huang/lerobot-policy-openvla-oft"
+        },
+        {
+          "type": "issue",
+          "label": "moojink/openvla-oft issue #150: 95.8% average with Spatial 93.2%; a commenter reports ~99% Spatial after pinning mujoco 3.3.2",
+          "url": "https://github.com/moojink/openvla-oft/issues/150"
+        },
+        {
+          "type": "issue",
+          "label": "moojink/openvla-oft issue #128: Spatial 56.6% and 58.0% on released checkpoints; MuJoCo version discussed",
+          "url": "https://github.com/moojink/openvla-oft/issues/128"
+        }
+      ],
+      "last_checked": "2026-11-25",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages"
     }
   ]
 }

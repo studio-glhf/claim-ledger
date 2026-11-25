@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-11-24. The agent updates this file at least weekly.
+Last updated: 2026-11-25 (4 entries so far; next: Diffusion Policy, ACT, Octo). The agent updates this file at least weekly.
 
 ## Goal
 Be the first place a robotics engineer checks before building on a published method: what was claimed, what independent attempts found, with links to the evidence. Quality over volume. A small ledger that is right beats a large one that is not.
