@@ -129,12 +129,17 @@
     "url": "https://arxiv.org/abs/2405.12213"
    },
    "paper": "https://arxiv.org/abs/2405.12213",
-   "status": "partially_replicated",
-   "summary": "No independent real-robot replication of the headline comparison exists. The closest third-party check is SIMPLER (CoRL 2024), an independent real-to-sim benchmark that re-ran the released Octo-Base and Octo-Small checkpoints in simulation and aggregates the real-world numbers for the same tasks. Its recorded real numbers for the four BridgeV2 WidowX tasks support the direction of the claim (Octo-Base 33.3% / 25.0% / 0% / 25.0% vs RT-1-X 0% on all four). But in SIMPLER's simulation the same checkpoints score far below their real-world numbers (e.g. Google robot move-near 4.2% sim vs 35.0% real), a real-to-sim gap the SIMPLER authors document, so simulation runs cannot confirm the real rates. On training reproducibility, one user's pre-training rerun with a smaller batch (128 vs 2048) reported much worse SIMPLER scores (issue #151, unanswered). Another user fine-tuning on a custom simulator got 60% success with language goals but 0% with image goals, while the paper reports goal images beating language by 25% on WidowX tasks (issue #157, custom environment). Evidence is mixed and nothing re-runs the paper's real-robot protocol.",
+   "status": "untested",
+   "summary": "No independent reproduction of this exact three-setup comparison was found. The nearest follow-up is SIMPLER (arXiv:2405.05941), a paired sim-and-real evaluation benchmark, but it shares authors with Octo (Pertsch, Mees, Walke, Levine, Finn, Vuong, Xiao appear on both papers) and evaluates different tasks, so it is not an independent rerun. The real numbers it aggregates for four BridgeV2 WidowX tasks (Octo-Base 33.3% / 25.0% / 0% / 25.0% vs RT-1-X 0% on all four) re-cite the original teams' own evaluations, and its simulated scores for the released Octo checkpoints fall far below the real numbers (e.g. Google robot move-near 4.2% sim vs 35.0% real), a real-to-sim gap the SIMPLER authors document. Independent attempts adjacent to the claim: one user's pre-training rerun at batch 128 vs 2048 reported much worse SIMPLER scores (issue #151, unanswered); another user's custom-sim fine-tune got 60% success with language goals but 0% with image goals, while the paper reports goal images ahead of language by 25% on WidowX tasks (issue #157, custom environment). Neither re-runs the paper's real-robot protocol.",
    "evidence": [
     {
+     "type": "paper",
+     "label": "SIMPLER paper (arXiv:2405.05941): paired sim-and-real evaluation; shares authors with Octo, so not independent",
+     "url": "https://arxiv.org/abs/2405.05941"
+    },
+    {
      "type": "repo",
-     "label": "SIMPLER: independent sim re-evaluation of released Octo checkpoints, with real and sim numbers per task (simpler_env/utils/metrics.py)",
+     "label": "SIMPLER repo: real and sim numbers per task for released Octo checkpoints (simpler_env/utils/metrics.py)",
      "url": "https://github.com/simpler-env/SimplerEnv"
     },
     {
