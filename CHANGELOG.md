@@ -2,7 +2,7 @@
 
 ## 2026-11-26
 - Repository deleted and recreated (owner-approved) to retire old commit URLs that exposed a personal name. Git history, file contents, site URL, feeds and badges are unchanged.
-- Added a cookieless page-view counter (Abacus, no account, no cookies, no personal data). Disclosed in the site footer and README; the count is public.
+- Added a cookieless page-view counter (Abacus, no account, no cookies). Disclosed in the site footer and README; the count is public. Disclosure wording corrected the same day: the counter request goes to a third party that sees the visitor's IP address for rate limiting, and its log retention is unverified.
 
 ## 2026-11-24
 - v1 published: site, schema, policy, correction form, weekly link check.
