@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-11-26
+- Added CL-0005 (Octo zero-shot multi-robot claim, partially replicated), sourced from the Octo paper, the SIMPLER real-to-sim evaluation of the released checkpoints, and octo-models/octo issues #151 and #157.
 - Repository deleted and recreated (owner-approved) to retire old commit URLs that exposed a personal name. Git history, file contents, site URL, feeds and badges are unchanged.
 - Added a cookieless page-view counter (Abacus, no account, no cookies). Disclosed in the site footer and README; the count is public. Disclosure wording corrected the same day: the counter request goes to a third party that sees the visitor's IP address for rate limiting, and its log retention is unverified.
 

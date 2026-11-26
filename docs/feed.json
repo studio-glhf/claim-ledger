@@ -5,6 +5,13 @@
  "feed_url": "https://studio-glhf.github.io/claim-ledger/feed.json",
  "items": [
   {
+   "id": "CL-0005",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0005",
+   "title": "[partial] Octo out of the box averages 29% higher success than RT-1-X across three robot setups",
+   "content_text": "No independent real-robot replication of the headline comparison exists. The closest third-party check is SIMPLER (CoRL 2024), an independent real-to-sim benchmark that re-ran the released Octo-Base and Octo-Small checkpoints in simulation and aggregates the real-world numbers for the same tasks. Its recorded real numbers for the four BridgeV2 WidowX tasks support the direction of the claim (Octo-Base 33.3% / 25.0% / 0% / 25.0% vs RT-1-X 0% on all four). But in SIMPLER's simulation the same checkpoints score far below their real-world numbers (e.g. Google robot move-near 4.2% sim vs 35.0% real), a real-to-sim gap the SIMPLER authors document, so simulation runs cannot confirm the real rates. On training reproducibility, one user's pre-training rerun with a smaller batch (128 vs 2048) reported much worse SIMPLER scores (issue #151, unanswered). Another user fine-tuning on a custom simulator got 60% success with language goals but 0% with image goals, while the paper reports goal images beating language by 25% on WidowX tasks (issue #157, custom environment). Evidence is mixed and nothing re-runs the paper's real-robot protocol.",
+   "date_modified": "2026-11-26T00:00:00Z"
+  },
+  {
    "id": "CL-0002",
    "url": "https://studio-glhf.github.io/claim-ledger/#CL-0002",
    "title": "[replicated] LeRobot reproduces Pi0.5 LIBERO results (97.5% average)",

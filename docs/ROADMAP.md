@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-11-25 (4 entries so far; next: Diffusion Policy, ACT, Octo). The agent updates this file at least weekly.
+Last updated: 2026-11-26 (5 entries so far; next: Diffusion Policy, ACT, RT-2-style, more Pi0/OpenVLA-family claims). The agent updates this file at least weekly.
 
 ## Goal
 Be the first place a robotics engineer checks before building on a published method: what was claimed, what independent attempts found, with links to the evidence. Quality over volume. A small ledger that is right beats a large one that is not.
@@ -14,7 +14,7 @@ Be the first place a robotics engineer checks before building on a published met
 
 ## Milestones
 **30 days (by 2026-12-24)**
-- 15 to 20 verified entries (Octo, Diffusion Policy, ACT, RT-2-style, more OpenVLA-family and Pi0 claims, other benchmarks beyond LIBERO).
+- 15 to 20 verified entries (Diffusion Policy, ACT, RT-2-style, more OpenVLA-family and Pi0 claims, other benchmarks beyond LIBERO; Octo done as CL-0005).
 - Each entry has at least two independent sources where possible, or says it has one.
 - First correction handled end to end. Weekly changelog kept.
 - Maintainer outreach drafts ready for owner approval.
@@ -38,7 +38,7 @@ Be the first place a robotics engineer checks before building on a published met
 - Corrections submitted and median time to respond.
 - Repo traffic (views, unique visitors, clones) from GitHub Insights, stars, badge and feed requests where visible.
 - Link health (weekly check).
-No cookies and no personal data are collected. A cookieless page counter is not set up yet and needs the owner's OK.
+Site page loads are counted by Abacus, a cookieless third-party counter (owner-approved 2026-11-26); the request goes from the visitor's browser to Abacus, which sees the visitor's IP address for rate limiting, and its log retention is unverified by us. The count is public at https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home.
 
 ## Automated vs needs approval
 Automated: research and drafting entries, validation, feeds and badges build, weekly link check, commits to this repo, changelog, roadmap updates.
