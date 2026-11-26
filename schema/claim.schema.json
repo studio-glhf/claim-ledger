@@ -2,21 +2,136 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Claim Ledger entry",
   "type": "object",
-  "required": ["id","title","claim","method","benchmark","source","status","summary","evidence","last_checked","checked_by"],
+  "required": [
+    "id",
+    "title",
+    "claim",
+    "method",
+    "benchmark",
+    "source",
+    "status",
+    "summary",
+    "evidence",
+    "last_checked",
+    "checked_by"
+  ],
   "properties": {
-    "id": {"type": "string", "pattern": "^CL-[0-9]{4}$"},
-    "title": {"type": "string"},
-    "claim": {"type": "string", "description": "The claim as the source states it, with numbers."},
-    "method": {"type": "string"},
-    "benchmark": {"type": "string"},
-    "source": {"type": "object", "required": ["label","url"], "properties": {"label": {"type":"string"}, "url": {"type":"string","format":"uri"}}},
-    "paper": {"type": ["string","null"]},
-    "status": {"enum": ["untested","replicated","partially_replicated","not_reproduced","contradicted"],
-      "description": "contradicted requires a cited source that directly states or shows the claim is false, such as an author erratum or a controlled re-test. not_reproduced means an attempt did not match but nothing shows the claim is false."},
-    "summary": {"type": "string", "description": "Neutral wording. State what was run, what differed, and the limits."},
-    "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["type","label","url"],
-      "properties": {"type": {"enum": ["paper","issue","repo","forum","erratum","other"]}, "label": {"type":"string"}, "url": {"type":"string","format":"uri"}}}},
-    "last_checked": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
-    "checked_by": {"type": "string"}
+    "id": {
+      "type": "string",
+      "pattern": "^CL-[0-9]{4}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string",
+      "description": "The claim as the source states it, with numbers."
+    },
+    "method": {
+      "type": "string"
+    },
+    "benchmark": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "label",
+        "url"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "paper": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "untested",
+        "replicated",
+        "partially_replicated",
+        "not_reproduced",
+        "contradicted"
+      ],
+      "description": "contradicted requires a cited source that directly states or shows the claim is false, such as an author erratum or a controlled re-test. not_reproduced means an attempt did not match but nothing shows the claim is false."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Neutral wording. State what was run, what differed, and the limits."
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "label",
+          "url"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "paper",
+              "issue",
+              "repo",
+              "forum",
+              "erratum",
+              "other"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "role": {
+            "enum": [
+              "independent_attempt",
+              "adjacent"
+            ],
+            "description": "independent_attempt: a comparable run by people independent of the claim's authors. adjacent: related context that does not count as independent testing."
+          }
+        }
+      }
+    },
+    "last_checked": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "checked_by": {
+      "type": "string"
+    },
+    "checks": {
+      "type": "object",
+      "required": [
+        "task_match",
+        "setup",
+        "author_overlap"
+      ],
+      "properties": {
+        "task_match": {
+          "type": "string"
+        },
+        "setup": {
+          "type": "string"
+        },
+        "author_overlap": {
+          "type": "string"
+        }
+      }
+    }
   }
 }

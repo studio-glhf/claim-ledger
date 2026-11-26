@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-27
+- POLICY.md: every status needs a primary claim source; replicated, partially_replicated and not_reproduced need independent comparable-attempt evidence; untested lists scope and adjacent evidence only. Before any status, task/benchmark match, setup and author overlap are recorded.
+- Evidence items now carry a role (independent_attempt or adjacent) and claims carry a checks block. validate.py enforces both in CI and prints tracked vs independently tested counts.
+
 ## 2026-11-26
 - CL-0005 (Octo): reclassified from partially replicated to untested. SIMPLER shares authors with Octo (Pertsch, Mees, Walke, Levine, Finn, Vuong, Xiao on both papers) and evaluates different tasks in paired sim/real experiments, so it is not an independent rerun; the entry now says no independent reproduction of the exact three-setup comparison was found. Status pill, feeds and badge regenerated.
 - Page-view counter paused: the site no longer makes a count request from the visitor's browser while the owner reviews the provider. Disclosure updated in the footer and README.

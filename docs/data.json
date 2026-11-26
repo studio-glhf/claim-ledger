@@ -18,16 +18,23 @@
     {
      "type": "issue",
      "label": "openvla/openvla issue #142: single-trial retrain, 73.75% average",
-     "url": "https://github.com/openvla/openvla/issues/142"
+     "url": "https://github.com/openvla/openvla/issues/142",
+     "role": "independent_attempt"
     },
     {
      "type": "repo",
      "label": "lz-googlefycy/openvla-libero: official checkpoints, 100 rollouts per suite, 67.0% average",
-     "url": "https://github.com/lz-googlefycy/openvla-libero"
+     "url": "https://github.com/lz-googlefycy/openvla-libero",
+     "role": "independent_attempt"
     }
    ],
    "last_checked": "2026-11-24",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+   "checks": {
+    "task_match": "Same LIBERO suites as the claim; one run used the released checkpoints, one retrained.",
+    "setup": "Retrain with a single trial; separate run with 100 rollouts per suite. Neither is 3 seeds x 50 episodes.",
+    "author_overlap": "None identified: both attempts are by third-party GitHub users."
+   }
   },
   {
    "id": "CL-0002",
@@ -46,11 +53,17 @@
     {
      "type": "issue",
      "label": "huggingface/lerobot issue #2114: 71.75% then 96.75% after documented n_action_steps=10",
-     "url": "https://github.com/huggingface/lerobot/issues/2114"
+     "url": "https://github.com/huggingface/lerobot/issues/2114",
+     "role": "independent_attempt"
     }
    ],
    "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+   "checks": {
+    "task_match": "Same LIBERO task set as the documented target.",
+    "setup": "Reporter's run after following the documented setup; single evaluator.",
+    "author_overlap": "None identified in the cited issue."
+   }
   },
   {
    "id": "CL-0003",
@@ -69,21 +82,29 @@
     {
      "type": "issue",
      "label": "huggingface/lerobot issue #2114: 64.75% then 71%, maintainer comment on needing more training",
-     "url": "https://github.com/huggingface/lerobot/issues/2114"
+     "url": "https://github.com/huggingface/lerobot/issues/2114",
+     "role": "independent_attempt"
     },
     {
      "type": "issue",
      "label": "huggingface/lerobot issue #2156: LIBERO-Goal only, ~75% (n_action_steps=50) vs ~90% (n_action_steps=10); maintainer describes multiple training runs",
-     "url": "https://github.com/huggingface/lerobot/issues/2156"
+     "url": "https://github.com/huggingface/lerobot/issues/2156",
+     "role": "independent_attempt"
     },
     {
      "type": "other",
      "label": "Hugging Face model card lerobot/pi0_libero_finetuned: no four-suite score table found",
-     "url": "https://huggingface.co/lerobot/pi0_libero_finetuned"
+     "url": "https://huggingface.co/lerobot/pi0_libero_finetuned",
+     "role": "adjacent"
     }
    ],
    "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+   "checks": {
+    "task_match": "Issue #2114 uses the LIBERO suites; #2156 covers LIBERO-Goal only. The four-suite target is unverified.",
+    "setup": "Settings differ between runs (see summary); checkpoint is the published pi0 LIBERO model.",
+    "author_overlap": "None identified in the cited issues."
+   }
   },
   {
    "id": "CL-0004",
@@ -102,21 +123,29 @@
     {
      "type": "repo",
      "label": "tc-huang/lerobot-policy-openvla-oft: 96.85% average vs 97.1% in the paper, 500 episodes per suite",
-     "url": "https://github.com/tc-huang/lerobot-policy-openvla-oft"
+     "url": "https://github.com/tc-huang/lerobot-policy-openvla-oft",
+     "role": "independent_attempt"
     },
     {
      "type": "issue",
      "label": "moojink/openvla-oft issue #150: 95.8% average with Spatial 93.2%; a commenter reports ~99% Spatial after pinning mujoco 3.3.2",
-     "url": "https://github.com/moojink/openvla-oft/issues/150"
+     "url": "https://github.com/moojink/openvla-oft/issues/150",
+     "role": "independent_attempt"
     },
     {
      "type": "issue",
      "label": "moojink/openvla-oft issue #128: Spatial 56.6% and 58.0% on released checkpoints; MuJoCo version discussed",
-     "url": "https://github.com/moojink/openvla-oft/issues/128"
+     "url": "https://github.com/moojink/openvla-oft/issues/128",
+     "role": "independent_attempt"
     }
    ],
    "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+   "checks": {
+    "task_match": "Same LIBERO suites as the authors' LIBERO.md.",
+    "setup": "Port to LeRobot and user runs on released checkpoints; setups differ from the authors' own.",
+    "author_overlap": "None identified: attempts are by third-party users and a third-party port."
+   }
   },
   {
    "id": "CL-0005",
@@ -135,31 +164,41 @@
     {
      "type": "paper",
      "label": "SIMPLER paper (arXiv:2405.05941): paired sim-and-real evaluation; shares authors with Octo, so not independent",
-     "url": "https://arxiv.org/abs/2405.05941"
+     "url": "https://arxiv.org/abs/2405.05941",
+     "role": "adjacent"
     },
     {
      "type": "repo",
      "label": "SIMPLER repo: real and sim numbers per task for released Octo checkpoints (simpler_env/utils/metrics.py)",
-     "url": "https://github.com/simpler-env/SimplerEnv"
+     "url": "https://github.com/simpler-env/SimplerEnv",
+     "role": "adjacent"
     },
     {
      "type": "issue",
      "label": "octo-models/octo issue #151: pre-training rerun at batch 128 vs 2048 reports much worse SIMPLER results; unanswered",
-     "url": "https://github.com/octo-models/octo/issues/151"
+     "url": "https://github.com/octo-models/octo/issues/151",
+     "role": "adjacent"
     },
     {
      "type": "issue",
      "label": "octo-models/octo issue #157: custom-sim fine-tune, language goal 60% vs image goal 0%, while the paper has goal images ahead",
-     "url": "https://github.com/octo-models/octo/issues/157"
+     "url": "https://github.com/octo-models/octo/issues/157",
+     "role": "adjacent"
     },
     {
      "type": "repo",
      "label": "octo-models/octo: released checkpoints and training pipeline",
-     "url": "https://github.com/octo-models/octo"
+     "url": "https://github.com/octo-models/octo",
+     "role": "adjacent"
     }
    ],
    "last_checked": "2026-11-26",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+   "checks": {
+    "task_match": "No attempt found on the same three-setup comparison; SIMPLER uses different tasks.",
+    "setup": "Released checkpoints were run in simulation only.",
+    "author_overlap": "SIMPLER shares authors with Octo, so it is not independent."
+   }
   }
  ]
 }
