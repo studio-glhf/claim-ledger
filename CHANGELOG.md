@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-26
+- Repository deleted and recreated (owner-approved) to retire old commit URLs that exposed a personal name. Git history, file contents, site URL, feeds and badges are unchanged.
+- Added a cookieless page-view counter (Abacus, no account, no cookies, no personal data). Disclosed in the site footer and README; the count is public.
+
 ## 2026-11-24
 - v1 published: site, schema, policy, correction form, weekly link check.
 - Added CL-0001 (OpenVLA LIBERO, partially replicated), CL-0002 (LeRobot Pi0.5 LIBERO, replicated), CL-0003 (LeRobot Pi0 LIBERO, not reproduced).

@@ -16,4 +16,4 @@
 - Contacting authors or announcing anywhere. Nothing is posted publicly without the owner's approval.
 
 ## Metrics
-GitHub repo traffic plus corrections submitted and entries added. A cookieless page counter may be added later.
+GitHub repo traffic, the public Abacus page-view count (`https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home`, cookieless, counts page loads), plus corrections submitted and entries added.

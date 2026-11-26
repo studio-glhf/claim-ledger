@@ -30,6 +30,10 @@ Open an issue with the [correction form](../../issues/new?template=correction.ym
 - `docs/OPERATIONS.md`: the agent's weekly loop and what is and is not automated.
 - `docs/ROADMAP.md`: goals, 30/60/90-day milestones, weekly plan, metrics, risks.
 
+## Analytics
+
+The site shows a page-view count from [Abacus](https://abacus.jasoncameron.dev), a free, open-source, cookieless counter that needs no account. It sets no cookies and collects no personal data. It counts page loads only, so bots, previews and refreshes are included; treat it as an upper bound on visits, not an audience measurement. The count is public: `https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home`.
+
 ## License
 
 Code MIT. Data CC BY 4.0.

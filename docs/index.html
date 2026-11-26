@@ -45,7 +45,17 @@
 </main>
 <footer class="wrap">
   <p>Data: CC BY 4.0. Code: MIT. <a href="https://github.com/studio-glhf/claim-ledger">Source and data on GitHub</a>. <a href="feed.xml">RSS</a> · <a href="feed.json">JSON feed</a> · <a href="https://github.com/studio-glhf/claim-ledger/blob/main/CHANGELOG.md">Changelog</a> · <span id="upd"></span></p>
+  <p class="muted">Page views: <span id="pv">…</span>. Counted by <a href="https://abacus.jasoncameron.dev">Abacus</a>, a free, open-source, cookieless counter. It sets no cookies and collects no personal data; it counts page loads only, bots and refreshes included. The count is public: <a href="https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home">abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home</a>.</p>
 </footer>
 <script src="app.js"></script>
+<script>
+(function(){try{
+  var el=document.getElementById('pv');if(!el)return;
+  fetch('https://abacus.jasoncameron.dev/hit/studio-glhf-claim-ledger/home',{mode:'cors',cache:'no-store'})
+    .then(function(r){return r.json();})
+    .then(function(d){el.textContent=(d&&d.value!=null)?Number(d.value).toLocaleString():'unavailable';})
+    .catch(function(){el.textContent='unavailable';});
+}catch(e){}})();
+</script>
 </body>
 </html>
