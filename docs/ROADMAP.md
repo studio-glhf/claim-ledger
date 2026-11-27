@@ -38,7 +38,7 @@ Be the first place a robotics engineer checks before building on a published met
 - Corrections submitted and median time to respond.
 - Repo traffic (views, unique visitors, clones) from GitHub Insights, stars, badge and feed requests where visible.
 - Link health (weekly check).
-Page-view counting (Abacus, a cookieless third-party counter) is paused as of 2026-11-26 while the owner reviews the provider; the site makes no count request from visitors' browsers. If re-enabled, the request goes from the visitor's browser to Abacus, which sees the visitor's IP address for rate limiting, and its log retention is unverified by us. Until then, traffic comes from GitHub Insights only.
+There is no on-site analytics and no third-party request from the site (a third-party page counter was tried on 2026-11-26 and removed). Traffic comes from GitHub Insights only.
 
 ## Automated vs needs approval
 Automated: research and drafting entries, validation, feeds and badges build, weekly link check, commits to this repo, changelog, roadmap updates.

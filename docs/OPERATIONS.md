@@ -16,4 +16,4 @@
 - Contacting authors or announcing anywhere. Nothing is posted publicly without the owner's approval.
 
 ## Metrics
-GitHub repo traffic, plus corrections submitted and entries added. The Abacus page-view counter is paused (2026-11-26) pending the owner's decision; its public count endpoint is `https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home`.
+GitHub repo traffic stats only (no on-site analytics), plus corrections submitted and entries added.

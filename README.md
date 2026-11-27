@@ -32,7 +32,7 @@ Open an issue with the [correction form](../../issues/new?template=correction.ym
 
 ## Analytics
 
-Page-view counting is paused while the owner reviews the provider; the site currently makes no count request from the visitor's browser. When active, the site shows a page-view count from [Abacus](https://abacus.jasoncameron.dev), a free, open-source counter that needs no account. It sets no cookies. The count request goes from the visitor's browser to that third-party service, which sees the visitor's IP address and uses it for rate limiting (its README documents a limit of 30 requests per 10 seconds per IP; as of 2026-11-26 the project publishes no privacy or log-retention policy, so retention is unverified by us). It counts page loads only, so bots, previews and refreshes are included; treat it as an upper bound on visits, not an audience measurement. The count is public: `https://abacus.jasoncameron.dev/get/studio-glhf-claim-ledger/home`.
+The site has no analytics, no cookies and no third-party requests. Traffic is measured only with GitHub repository traffic stats.
 
 ## License
 

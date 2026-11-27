@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-27 (night)
+- Removed the page-view counter wording and code from the site; traffic is read from GitHub traffic stats only. Earlier changelog wording on approval was changed to plain factual terms.
+
 ## 2026-11-27 (later)
 - Added CL-0006 (ACT sim Cube Transfer and Bimanual Insertion, human demonstrations, partially replicated), sourced from the ACT paper Table I, the LeRobot model card, and lerobot issues #2605 and #4168. The summary says the runs are not like-for-like.
 
@@ -9,9 +12,9 @@
 
 ## 2026-11-26
 - CL-0005 (Octo): reclassified from partially replicated to untested. SIMPLER shares authors with Octo (Pertsch, Mees, Walke, Levine, Finn, Vuong, Xiao on both papers) and evaluates different tasks in paired sim/real experiments, so it is not an independent rerun; the entry now says no independent reproduction of the exact three-setup comparison was found. Status pill, feeds and badge regenerated.
-- Page-view counter paused: the site no longer makes a count request from the visitor's browser while the owner reviews the provider. Disclosure updated in the footer and README.
+- Page-view counter removed: the site no longer makes any count request, and the footer, README, roadmap and operations notes now say there is no on-site analytics.
 - Added CL-0005 (Octo zero-shot multi-robot claim, partially replicated), sourced from the Octo paper, the SIMPLER real-to-sim evaluation of the released checkpoints, and octo-models/octo issues #151 and #157.
-- Repository deleted and recreated (owner-approved) to retire old commit URLs that exposed a personal name. Git history, file contents, site URL, feeds and badges are unchanged.
+- Repository deleted and recreated to retire old commit URLs that exposed a personal name. Git history, file contents, site URL, feeds and badges are unchanged.
 - Added a cookieless page-view counter (Abacus, no account, no cookies). Disclosed in the site footer and README; the count is public. Disclosure wording corrected the same day: the counter request goes to a third party that sees the visitor's IP address for rate limiting, and its log retention is unverified.
 
 ## 2026-11-24
