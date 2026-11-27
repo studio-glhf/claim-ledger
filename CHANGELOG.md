@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-27 (later)
+- Added CL-0006 (ACT sim Cube Transfer and Bimanual Insertion, human demonstrations, partially replicated), sourced from the ACT paper Table I, the LeRobot model card, and lerobot issues #2605 and #4168. The summary says the runs are not like-for-like.
+
 ## 2026-11-27
 - POLICY.md: every status needs a primary claim source; replicated, partially_replicated and not_reproduced need independent comparable-attempt evidence; untested lists scope and adjacent evidence only. Before any status, task/benchmark match, setup and author overlap are recorded.
 - Evidence items now carry a role (independent_attempt or adjacent) and claims carry a checks block. validate.py enforces both in CI and prints tracked vs independently tested counts.

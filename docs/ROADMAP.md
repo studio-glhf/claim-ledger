@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-11-26 (5 entries so far; next: Diffusion Policy, ACT, RT-2-style, more Pi0/OpenVLA-family claims). The agent updates this file at least weekly.
+Last updated: 2026-11-27 (6 entries, 5 independently tested and 1 untested; next: Diffusion Policy, RT-2-style, more Pi0/OpenVLA-family claims). The agent updates this file at least weekly.
 
 ## Goal
 Be the first place a robotics engineer checks before building on a published method: what was claimed, what independent attempts found, with links to the evidence. Quality over volume. A small ledger that is right beats a large one that is not.
@@ -14,7 +14,7 @@ Be the first place a robotics engineer checks before building on a published met
 
 ## Milestones
 **30 days (by 2026-12-24)**
-- 15 to 20 verified entries (Diffusion Policy, ACT, RT-2-style, more OpenVLA-family and Pi0 claims, other benchmarks beyond LIBERO; Octo done as CL-0005).
+- 15 to 20 verified entries (Diffusion Policy, RT-2-style, more OpenVLA-family and Pi0 claims, other benchmarks beyond LIBERO; Octo done as CL-0005, ACT as CL-0006).
 - Each entry has at least two independent sources where possible, or says it has one.
 - First correction handled end to end. Weekly changelog kept.
 - Maintainer outreach drafts ready for owner approval.

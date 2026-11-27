@@ -5,6 +5,13 @@
  "feed_url": "https://studio-glhf.github.io/claim-ledger/feed.json",
  "items": [
   {
+   "id": "CL-0006",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0006",
+   "title": "[partial] ACT reaches 50% on sim Cube Transfer and 20% on sim Bimanual Insertion with human demonstrations",
+   "content_text": "Third-party runs of ACT in the LeRobot port land in a similar range but are not like-for-like. The LeRobot team's model card reports 83.0% on Transfer Cube over 500 episodes for its own re-implementation, and 68.0% for weights trained with the original ACT repo and evaluated in LeRobot. It says the code was heavily refactored and that its environment may score success differently (success can register on the second gripper's contact with the cube), so those figures are not directly comparable to the paper's 50%. Later users report lower numbers with the current LeRobot code: about 50-60% over 500 episodes on Transfer Cube (issue #2605, which also cites 8% on Insertion against the 20% LeRobot reports), and 66% over 50 episodes in a separate run (issue #4168). One comment in #2605 reports 34% on a custom Isaac task against 90% with the original ACT code, which is a different environment. None of these is a 3-seed, 50-evaluation rerun in the paper's own environment, so seeds, evaluation counts, environment port and success definition all differ. The evidence supports the claim loosely on Transfer Cube and is mixed on Insertion. It does not show the paper's numbers are wrong.",
+   "date_modified": "2026-11-27T00:00:00Z"
+  },
+  {
    "id": "CL-0005",
    "url": "https://studio-glhf.github.io/claim-ledger/#CL-0005",
    "title": "[untested] Octo out of the box averages 29% higher success than RT-1-X across three robot setups",

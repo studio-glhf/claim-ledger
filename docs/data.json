@@ -199,6 +199,47 @@
     "setup": "Released checkpoints were run in simulation only.",
     "author_overlap": "SIMPLER shares authors with Octo, so it is not independent."
    }
+  },
+  {
+   "id": "CL-0006",
+   "title": "ACT reaches 50% on sim Cube Transfer and 20% on sim Bimanual Insertion with human demonstrations",
+   "claim": "In the ACT paper's Table I, trained on 50 human demonstrations in simulation, ACT reaches 50% final success on Cube Transfer and 20% on Bimanual Insertion (86% and 32% with scripted demonstrations), averaged over 3 seeds with 50 evaluations each.",
+   "method": "ACT (Action Chunking with Transformers)",
+   "benchmark": "ALOHA sim: Transfer Cube, Bimanual Insertion",
+   "source": {
+    "label": "ACT paper, Table I (arXiv:2304.13705)",
+    "url": "https://arxiv.org/abs/2304.13705"
+   },
+   "paper": "https://arxiv.org/abs/2304.13705",
+   "status": "partially_replicated",
+   "summary": "Third-party runs of ACT in the LeRobot port land in a similar range but are not like-for-like. The LeRobot team's model card reports 83.0% on Transfer Cube over 500 episodes for its own re-implementation, and 68.0% for weights trained with the original ACT repo and evaluated in LeRobot. It says the code was heavily refactored and that its environment may score success differently (success can register on the second gripper's contact with the cube), so those figures are not directly comparable to the paper's 50%. Later users report lower numbers with the current LeRobot code: about 50-60% over 500 episodes on Transfer Cube (issue #2605, which also cites 8% on Insertion against the 20% LeRobot reports), and 66% over 50 episodes in a separate run (issue #4168). One comment in #2605 reports 34% on a custom Isaac task against 90% with the original ACT code, which is a different environment. None of these is a 3-seed, 50-evaluation rerun in the paper's own environment, so seeds, evaluation counts, environment port and success definition all differ. The evidence supports the claim loosely on Transfer Cube and is mixed on Insertion. It does not show the paper's numbers are wrong.",
+   "evidence": [
+    {
+     "type": "other",
+     "role": "independent_attempt",
+     "label": "LeRobot model card lerobot/act_aloha_sim_transfer_cube_human: 83.0% (LeRobot re-implementation) and 68.0% (original-repo weights) over 500 episodes, with caveats on code and success definition",
+     "url": "https://huggingface.co/lerobot/act_aloha_sim_transfer_cube_human"
+    },
+    {
+     "type": "issue",
+     "role": "independent_attempt",
+     "label": "huggingface/lerobot issue #2605: ~50-60% over 500 episodes on Transfer Cube, reporter could not match the model card; Insertion 8% reported in a comment",
+     "url": "https://github.com/huggingface/lerobot/issues/2605"
+    },
+    {
+     "type": "issue",
+     "role": "independent_attempt",
+     "label": "huggingface/lerobot issue #4168: 66% on Transfer Cube, 50 evaluation episodes, 100k steps at batch size 8",
+     "url": "https://github.com/huggingface/lerobot/issues/4168"
+    }
+   ],
+   "checks": {
+    "task_match": "Same two ALOHA sim tasks by name, run in LeRobot's gym-aloha port rather than the authors' original environment; the Isaac comment in #2605 is a different environment and is not counted.",
+    "setup": "Single models, 50 or 500 evaluations, current LeRobot code; paper used 3 seeds x 50. LeRobot's success check may differ (see model card).",
+    "author_overlap": "None identified: the attempts come from the LeRobot team and third-party users, not the ACT paper's authors."
+   },
+   "last_checked": "2026-11-27",
+   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
   }
  ]
 }
