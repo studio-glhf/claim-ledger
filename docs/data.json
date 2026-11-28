@@ -1,245 +1,280 @@
 {
- "updated": "2026-11-25",
- "claims": [
-  {
-   "id": "CL-0001",
-   "title": "OpenVLA fine-tuned reaches 76.5% average success on LIBERO",
-   "claim": "OpenVLA fine-tuned per suite scores 84.7% (Spatial), 88.4% (Object), 79.2% (Goal), 53.7% (Long), 76.5% average, as a mean over 3 seeds.",
-   "method": "OpenVLA",
-   "benchmark": "LIBERO",
-   "source": {
-    "label": "OpenVLA README, LIBERO section",
-    "url": "https://github.com/openvla/openvla"
-   },
-   "paper": "https://arxiv.org/abs/2406.09246",
-   "status": "partially_replicated",
-   "summary": "Third-party runs land close on some suites and far off on others. One user's single-trial run averaged 73.75% (Goal 74.2, Long 48.4). A separate single-seed, 100-rollout-per-suite run using the official checkpoints averaged 67.0%, with Object at 60.0% against 88.4% reported, while Long (53.0%) and Goal (77.0%) were near the reported numbers. Neither run is a full 3-seed, 50-episode replication, so differences may be noise, hardware or rendering. Not enough to call the claim wrong.",
-   "evidence": [
+  "updated": "2026-11-28",
+  "claims": [
     {
-     "type": "issue",
-     "label": "openvla/openvla issue #142: single-trial retrain, 73.75% average",
-     "url": "https://github.com/openvla/openvla/issues/142",
-     "role": "independent_attempt"
+      "id": "CL-0001",
+      "title": "OpenVLA fine-tuned reaches 76.5% average success on LIBERO",
+      "claim": "OpenVLA fine-tuned per suite scores 84.7% (Spatial), 88.4% (Object), 79.2% (Goal), 53.7% (Long), 76.5% average, as a mean over 3 seeds.",
+      "method": "OpenVLA",
+      "benchmark": "LIBERO",
+      "source": {
+        "label": "OpenVLA README, LIBERO section",
+        "url": "https://github.com/openvla/openvla"
+      },
+      "paper": "https://arxiv.org/abs/2406.09246",
+      "status": "partially_replicated",
+      "summary": "Third-party runs land close on some suites and far off on others. One user's single-trial run averaged 73.75% (Goal 74.2, Long 48.4). A separate single-seed, 100-rollout-per-suite run using the official checkpoints averaged 67.0%, with Object at 60.0% against 88.4% reported, while Long (53.0%) and Goal (77.0%) were near the reported numbers. Neither run is a full 3-seed, 50-episode replication, so differences may be noise, hardware or rendering. Not enough to call the claim wrong.",
+      "evidence": [
+        {
+          "type": "issue",
+          "label": "openvla/openvla issue #142: single-trial retrain, 73.75% average",
+          "url": "https://github.com/openvla/openvla/issues/142",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "repo",
+          "label": "lz-googlefycy/openvla-libero: official checkpoints, 100 rollouts per suite, 67.0% average",
+          "url": "https://github.com/lz-googlefycy/openvla-libero",
+          "role": "independent_attempt"
+        }
+      ],
+      "last_checked": "2026-11-24",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "Same LIBERO suites as the claim; one run used the released checkpoints, one retrained.",
+        "setup": "Retrain with a single trial; separate run with 100 rollouts per suite. Neither is 3 seeds x 50 episodes.",
+        "author_overlap": "None identified: both attempts are by third-party GitHub users."
+      }
     },
     {
-     "type": "repo",
-     "label": "lz-googlefycy/openvla-libero: official checkpoints, 100 rollouts per suite, 67.0% average",
-     "url": "https://github.com/lz-googlefycy/openvla-libero",
-     "role": "independent_attempt"
+      "id": "CL-0002",
+      "title": "LeRobot reproduces Pi0.5 LIBERO results (97.5% average)",
+      "claim": "LeRobot's lerobot/pi05_libero_finetuned checkpoint reproduces published Pi0.5 LIBERO performance: 97.0 Spatial, 99.0 Object, 98.0 Goal, 96.0 Long, 97.5 average, versus 96.85 average for OpenPI.",
+      "method": "Pi0.5 (LeRobot port)",
+      "benchmark": "LIBERO",
+      "source": {
+        "label": "LeRobot LIBERO docs, Reproducing published results",
+        "url": "https://huggingface.co/docs/lerobot/en/libero"
+      },
+      "paper": null,
+      "status": "replicated",
+      "summary": "One outside evaluator first measured 71.75% average with a non-documented setup. After setting policy.n_action_steps=10 as the docs specify, they reported 96.75% average against the documented 97.5%, a near match from a single run with 10 episodes per task. One evaluator on the same LeRobot harness is limited evidence: it does not show the result holds across seeds, simulators or hardware. The n_action_steps setting changes results a lot, so check it when comparing numbers.",
+      "evidence": [
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2114: 71.75% then 96.75% after documented n_action_steps=10",
+          "url": "https://github.com/huggingface/lerobot/issues/2114",
+          "role": "independent_attempt"
+        }
+      ],
+      "last_checked": "2026-11-25",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "Same LIBERO task set as the documented target.",
+        "setup": "Reporter's run after following the documented setup; single evaluator.",
+        "author_overlap": "None identified in the cited issue."
+      }
+    },
+    {
+      "id": "CL-0003",
+      "title": "LeRobot Pi0 LIBERO checkpoint matches reported success rates",
+      "claim": "lerobot/pi0_libero_finetuned achieves LIBERO success rates in line with those reported for it. The four-suite target is unverified: the reporter in issue #2114 cites a leaderboard and the original repository, and no contemporaneous primary score table for this exact checkpoint was found on its Hugging Face model card (checked 2026-11-25) or in the LeRobot LIBERO docs, whose published results table covers Pi0.5 only.",
+      "method": "Pi0 (LeRobot port)",
+      "benchmark": "LIBERO",
+      "source": {
+        "label": "Claim as described in huggingface/lerobot issue #2114 (target figures not independently pinned)",
+        "url": "https://github.com/huggingface/lerobot/issues/2114"
+      },
+      "paper": null,
+      "status": "not_reproduced",
+      "summary": "Observation 1 (four suites, issue #2114): an outside user measured 64.75% average (Spatial 69, Object 72, Goal 83, Long 35) and, after changing MuJoCo version and seed, 71%, which they described as 10 to 20 points under the figures they were comparing to. A LeRobot maintainer replied that the Pi0 checkpoint needs more training to reach paper-level results. Observation 2 (LIBERO-Goal only, issue #2156, a different user): about 75% with n_action_steps=50 and about 90% with n_action_steps=10 for the same checkpoint. This is one suite, so it says nothing about the other three. Together: results for this checkpoint depend strongly on evaluation settings, and the reference target is not pinned here, so this ledger cannot say how large the gap is. 'Not reproduced' reflects a third-party attempt that did not match what the reporter expected, not that anything was misreported. Checkpoint versions may also have changed since (the model card now names a v044 variant).",
+      "evidence": [
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2114: 64.75% then 71%, maintainer comment on needing more training",
+          "url": "https://github.com/huggingface/lerobot/issues/2114",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "issue",
+          "label": "huggingface/lerobot issue #2156: LIBERO-Goal only, ~75% (n_action_steps=50) vs ~90% (n_action_steps=10); maintainer describes multiple training runs",
+          "url": "https://github.com/huggingface/lerobot/issues/2156",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "other",
+          "label": "Hugging Face model card lerobot/pi0_libero_finetuned: no four-suite score table found",
+          "url": "https://huggingface.co/lerobot/pi0_libero_finetuned",
+          "role": "adjacent"
+        }
+      ],
+      "last_checked": "2026-11-25",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "Issue #2114 uses the LIBERO suites; #2156 covers LIBERO-Goal only. The four-suite target is unverified.",
+        "setup": "Settings differ between runs (see summary); checkpoint is the published pi0 LIBERO model.",
+        "author_overlap": "None identified in the cited issues."
+      }
+    },
+    {
+      "id": "CL-0004",
+      "title": "OpenVLA-OFT reaches 97.1% average success on LIBERO",
+      "claim": "OpenVLA-OFT with task-specific policies reaches 97.1% average success across the four LIBERO suites (97.6% on LIBERO-Spatial), averaged over three random seeds per the authors; a single policy trained on all four suites scores 96.8%.",
+      "method": "OpenVLA-OFT",
+      "benchmark": "LIBERO",
+      "source": {
+        "label": "openvla-oft LIBERO.md",
+        "url": "https://github.com/moojink/openvla-oft/blob/main/LIBERO.md"
+      },
+      "paper": null,
+      "status": "partially_replicated",
+      "summary": "Mixed, with a setup explanation. A third-party LeRobot port evaluated the released checkpoints and reported 96.85% average over 500 episodes per suite against 97.1% in the paper (before a precision fix the port's author notes). In issue #150, one user ran 50 episodes per task with seed 7 on an RTX 4090 and got 95.8% average, with Spatial at 93.2% against 97.6%; another commenter reported reaching about 99% on Spatial after reinstalling with mujoco==3.3.2. In issue #128, users evaluating the released checkpoints reported much lower Spatial results (56.6% and 58.0%) and the thread discusses the MuJoCo version, which one commenter says changes floor rendering. This ledger did not read the thread through to a confirmed resolution. Taken together: the headline is approached by some independent runs and missed badly by others, and results appear sensitive to the simulator version. All figures here come from user reports and a port's README, not controlled replications.",
+      "evidence": [
+        {
+          "type": "repo",
+          "label": "tc-huang/lerobot-policy-openvla-oft: 96.85% average vs 97.1% in the paper, 500 episodes per suite",
+          "url": "https://github.com/tc-huang/lerobot-policy-openvla-oft",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "issue",
+          "label": "moojink/openvla-oft issue #150: 95.8% average with Spatial 93.2%; a commenter reports ~99% Spatial after pinning mujoco 3.3.2",
+          "url": "https://github.com/moojink/openvla-oft/issues/150",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "issue",
+          "label": "moojink/openvla-oft issue #128: Spatial 56.6% and 58.0% on released checkpoints; MuJoCo version discussed",
+          "url": "https://github.com/moojink/openvla-oft/issues/128",
+          "role": "independent_attempt"
+        }
+      ],
+      "last_checked": "2026-11-25",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "Same LIBERO suites as the authors' LIBERO.md.",
+        "setup": "Port to LeRobot and user runs on released checkpoints; setups differ from the authors' own.",
+        "author_overlap": "None identified: attempts are by third-party users and a third-party port."
+      }
+    },
+    {
+      "id": "CL-0005",
+      "title": "Octo out of the box averages 29% higher success than RT-1-X across three robot setups",
+      "claim": "Zero-shot with language instructions, the released Octo model averages a 29% higher success rate than RT-1-X across three robot embodiments and setups, and performs similarly to RT-2-X on the tested WidowX and RT-1 robot tasks. 10 trials per task, two tasks per robot, tasks drawn from the pretraining distribution.",
+      "method": "Octo",
+      "benchmark": "OXE zero-shot multi-robot eval (BridgeV2 WidowX, Google robot)",
+      "source": {
+        "label": "Octo paper, Section IV-A and Fig. 4 (arXiv:2405.12213v2)",
+        "url": "https://arxiv.org/abs/2405.12213"
+      },
+      "paper": "https://arxiv.org/abs/2405.12213",
+      "status": "untested",
+      "summary": "No independent reproduction of this exact three-setup comparison was found. The nearest follow-up is SIMPLER (arXiv:2405.05941), a paired sim-and-real evaluation benchmark, but it shares authors with Octo (Pertsch, Mees, Walke, Levine, Finn, Vuong, Xiao appear on both papers) and evaluates different tasks, so it is not an independent rerun. The real numbers it aggregates for four BridgeV2 WidowX tasks (Octo-Base 33.3% / 25.0% / 0% / 25.0% vs RT-1-X 0% on all four) re-cite the original teams' own evaluations, and its simulated scores for the released Octo checkpoints fall far below the real numbers (e.g. Google robot move-near 4.2% sim vs 35.0% real), a real-to-sim gap the SIMPLER authors document. Independent attempts adjacent to the claim: one user's pre-training rerun at batch 128 vs 2048 reported much worse SIMPLER scores (issue #151, unanswered); another user's custom-sim fine-tune got 60% success with language goals but 0% with image goals, while the paper reports goal images ahead of language by 25% on WidowX tasks (issue #157, custom environment). Neither re-runs the paper's real-robot protocol.",
+      "evidence": [
+        {
+          "type": "paper",
+          "label": "SIMPLER paper (arXiv:2405.05941): paired sim-and-real evaluation; shares authors with Octo, so not independent",
+          "url": "https://arxiv.org/abs/2405.05941",
+          "role": "adjacent"
+        },
+        {
+          "type": "repo",
+          "label": "SIMPLER repo: real and sim numbers per task for released Octo checkpoints (simpler_env/utils/metrics.py)",
+          "url": "https://github.com/simpler-env/SimplerEnv",
+          "role": "adjacent"
+        },
+        {
+          "type": "issue",
+          "label": "octo-models/octo issue #151: pre-training rerun at batch 128 vs 2048 reports much worse SIMPLER results; unanswered",
+          "url": "https://github.com/octo-models/octo/issues/151",
+          "role": "adjacent"
+        },
+        {
+          "type": "issue",
+          "label": "octo-models/octo issue #157: custom-sim fine-tune, language goal 60% vs image goal 0%, while the paper has goal images ahead",
+          "url": "https://github.com/octo-models/octo/issues/157",
+          "role": "adjacent"
+        },
+        {
+          "type": "repo",
+          "label": "octo-models/octo: released checkpoints and training pipeline",
+          "url": "https://github.com/octo-models/octo",
+          "role": "adjacent"
+        }
+      ],
+      "last_checked": "2026-11-26",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "No attempt found on the same three-setup comparison; SIMPLER uses different tasks.",
+        "setup": "Released checkpoints were run in simulation only.",
+        "author_overlap": "SIMPLER shares authors with Octo, so it is not independent."
+      }
+    },
+    {
+      "id": "CL-0006",
+      "title": "ACT reaches 50% on sim Cube Transfer and 20% on sim Bimanual Insertion with human demonstrations",
+      "claim": "In the ACT paper's Table I, trained on 50 human demonstrations in simulation, ACT reaches 50% final success on Cube Transfer and 20% on Bimanual Insertion (86% and 32% with scripted demonstrations), averaged over 3 seeds with 50 evaluations each.",
+      "method": "ACT (Action Chunking with Transformers)",
+      "benchmark": "ALOHA sim: Transfer Cube, Bimanual Insertion",
+      "source": {
+        "label": "ACT paper, Table I (arXiv:2304.13705)",
+        "url": "https://arxiv.org/abs/2304.13705"
+      },
+      "paper": "https://arxiv.org/abs/2304.13705",
+      "status": "partially_replicated",
+      "summary": "Third-party runs of ACT in the LeRobot port land in a similar range but are not like-for-like. The LeRobot team's model card reports 83.0% on Transfer Cube over 500 episodes for its own re-implementation, and 68.0% for weights trained with the original ACT repo and evaluated in LeRobot. It says the code was heavily refactored and that its environment may score success differently (success can register on the second gripper's contact with the cube), so those figures are not directly comparable to the paper's 50%. Later users report lower numbers with the current LeRobot code: about 50-60% over 500 episodes on Transfer Cube (issue #2605, which also cites 8% on Insertion against the 20% LeRobot reports), and 66% over 50 episodes in a separate run (issue #4168). One comment in #2605 reports 34% on a custom Isaac task against 90% with the original ACT code, which is a different environment. None of these is a 3-seed, 50-evaluation rerun in the paper's own environment, so seeds, evaluation counts, environment port and success definition all differ. The evidence supports the claim loosely on Transfer Cube and is mixed on Insertion. It does not show the paper's numbers are wrong.",
+      "evidence": [
+        {
+          "type": "other",
+          "role": "independent_attempt",
+          "label": "LeRobot model card lerobot/act_aloha_sim_transfer_cube_human: 83.0% (LeRobot re-implementation) and 68.0% (original-repo weights) over 500 episodes, with caveats on code and success definition",
+          "url": "https://huggingface.co/lerobot/act_aloha_sim_transfer_cube_human"
+        },
+        {
+          "type": "issue",
+          "role": "independent_attempt",
+          "label": "huggingface/lerobot issue #2605: ~50-60% over 500 episodes on Transfer Cube, reporter could not match the model card; Insertion 8% reported in a comment",
+          "url": "https://github.com/huggingface/lerobot/issues/2605"
+        },
+        {
+          "type": "issue",
+          "role": "independent_attempt",
+          "label": "huggingface/lerobot issue #4168: 66% on Transfer Cube, 50 evaluation episodes, 100k steps at batch size 8",
+          "url": "https://github.com/huggingface/lerobot/issues/4168"
+        }
+      ],
+      "checks": {
+        "task_match": "Same two ALOHA sim tasks by name, run in LeRobot's gym-aloha port rather than the authors' original environment; the Isaac comment in #2605 is a different environment and is not counted.",
+        "setup": "Single models, 50 or 500 evaluations, current LeRobot code; paper used 3 seeds x 50. LeRobot's success check may differ (see model card).",
+        "author_overlap": "None identified: the attempts come from the LeRobot team and third-party users, not the ACT paper's authors."
+      },
+      "last_checked": "2026-11-27",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages"
+    },
+    {
+      "id": "CL-0007",
+      "title": "Diffusion Policy Push-T (state, CNN) reports 0.946 max test mean score",
+      "claim": "Diffusion Policy (state-based CNN variant) reports a max test mean score of about 0.946 on the Push-T simulation task, taken from the 'max' aggregation over 3 training runs in the authors' published experiment logs (the basis of the paper's Push-T table).",
+      "method": "Diffusion Policy (CNN, state-based)",
+      "benchmark": "Push-T (simulation)",
+      "source": {
+        "label": "Diffusion Policy paper (Chi et al.) and official experiment logs for low_dim/pusht/diffusion_policy_cnn",
+        "url": "https://arxiv.org/abs/2303.04137"
+      },
+      "paper": "https://arxiv.org/abs/2303.04137",
+      "status": "partially_replicated",
+      "summary": "An independent re-implementation in LeRobot (lerobot/diffusion_pusht) trained Diffusion Policy on Push-T and measured 0.955 average max overlap and a 65.4% success rate (episodes reaching 95% overlap) over 500 evaluation episodes, against the authors' reported 0.946 max test mean score. A model trained with the original Diffusion Policy code and evaluated in the same LeRobot harness scored 0.957 average max overlap and 64.2% success, so the port matches the original implementation within about a point on both metrics. Limits: the paper's number is the best evaluation over training (max key over 3 runs), while the LeRobot numbers come from a single seed at a fixed 175k-step checkpoint; the 95%-overlap success rate has no direct counterpart in the paper's Push-T table; the training data is LeRobot's own conversion of the Push-T demonstrations. The paper's real-robot Push-T results are untested here.",
+      "evidence": [
+        {
+          "type": "other",
+          "label": "huggingface.co/lerobot/diffusion_pusht model card: 0.955 avg max overlap and 65.4% success (500 episodes); original-code model in the same harness 0.957 / 64.2%",
+          "url": "https://huggingface.co/lerobot/diffusion_pusht",
+          "role": "independent_attempt"
+        },
+        {
+          "type": "other",
+          "label": "Official experiment logs (low_dim/pusht/diffusion_policy_cnn, 3-run metrics): final max/test_mean_score 0.9456",
+          "url": "https://diffusion-policy.cs.columbia.edu/data/experiments/low_dim/pusht/diffusion_policy_cnn/metrics/logs.json.txt",
+          "role": "adjacent"
+        }
+      ],
+      "last_checked": "2026-11-28",
+      "checked_by": "Claim Ledger agent, reviewed against the cited pages",
+      "checks": {
+        "task_match": "Same Push-T task; LeRobot evaluates in gym-pusht with its own conversion of the demonstration data (lerobot/pusht), state-based input like the cited low_dim config.",
+        "setup": "Paper: 3 training runs, best-checkpoint (max) aggregation. LeRobot: single seed (100000), 175k-step checkpoint, 500 eval episodes. Comparable but not like-for-like.",
+        "author_overlap": "None identified: LeRobot (Hugging Face) is a separate team from the Columbia/TRI/MIT authors."
+      }
     }
-   ],
-   "last_checked": "2026-11-24",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
-   "checks": {
-    "task_match": "Same LIBERO suites as the claim; one run used the released checkpoints, one retrained.",
-    "setup": "Retrain with a single trial; separate run with 100 rollouts per suite. Neither is 3 seeds x 50 episodes.",
-    "author_overlap": "None identified: both attempts are by third-party GitHub users."
-   }
-  },
-  {
-   "id": "CL-0002",
-   "title": "LeRobot reproduces Pi0.5 LIBERO results (97.5% average)",
-   "claim": "LeRobot's lerobot/pi05_libero_finetuned checkpoint reproduces published Pi0.5 LIBERO performance: 97.0 Spatial, 99.0 Object, 98.0 Goal, 96.0 Long, 97.5 average, versus 96.85 average for OpenPI.",
-   "method": "Pi0.5 (LeRobot port)",
-   "benchmark": "LIBERO",
-   "source": {
-    "label": "LeRobot LIBERO docs, Reproducing published results",
-    "url": "https://huggingface.co/docs/lerobot/en/libero"
-   },
-   "paper": null,
-   "status": "replicated",
-   "summary": "One outside evaluator first measured 71.75% average with a non-documented setup. After setting policy.n_action_steps=10 as the docs specify, they reported 96.75% average against the documented 97.5%, a near match from a single run with 10 episodes per task. One evaluator on the same LeRobot harness is limited evidence: it does not show the result holds across seeds, simulators or hardware. The n_action_steps setting changes results a lot, so check it when comparing numbers.",
-   "evidence": [
-    {
-     "type": "issue",
-     "label": "huggingface/lerobot issue #2114: 71.75% then 96.75% after documented n_action_steps=10",
-     "url": "https://github.com/huggingface/lerobot/issues/2114",
-     "role": "independent_attempt"
-    }
-   ],
-   "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
-   "checks": {
-    "task_match": "Same LIBERO task set as the documented target.",
-    "setup": "Reporter's run after following the documented setup; single evaluator.",
-    "author_overlap": "None identified in the cited issue."
-   }
-  },
-  {
-   "id": "CL-0003",
-   "title": "LeRobot Pi0 LIBERO checkpoint matches reported success rates",
-   "claim": "lerobot/pi0_libero_finetuned achieves LIBERO success rates in line with those reported for it. The four-suite target is unverified: the reporter in issue #2114 cites a leaderboard and the original repository, and no contemporaneous primary score table for this exact checkpoint was found on its Hugging Face model card (checked 2026-11-25) or in the LeRobot LIBERO docs, whose published results table covers Pi0.5 only.",
-   "method": "Pi0 (LeRobot port)",
-   "benchmark": "LIBERO",
-   "source": {
-    "label": "Claim as described in huggingface/lerobot issue #2114 (target figures not independently pinned)",
-    "url": "https://github.com/huggingface/lerobot/issues/2114"
-   },
-   "paper": null,
-   "status": "not_reproduced",
-   "summary": "Observation 1 (four suites, issue #2114): an outside user measured 64.75% average (Spatial 69, Object 72, Goal 83, Long 35) and, after changing MuJoCo version and seed, 71%, which they described as 10 to 20 points under the figures they were comparing to. A LeRobot maintainer replied that the Pi0 checkpoint needs more training to reach paper-level results. Observation 2 (LIBERO-Goal only, issue #2156, a different user): about 75% with n_action_steps=50 and about 90% with n_action_steps=10 for the same checkpoint. This is one suite, so it says nothing about the other three. Together: results for this checkpoint depend strongly on evaluation settings, and the reference target is not pinned here, so this ledger cannot say how large the gap is. 'Not reproduced' reflects a third-party attempt that did not match what the reporter expected, not that anything was misreported. Checkpoint versions may also have changed since (the model card now names a v044 variant).",
-   "evidence": [
-    {
-     "type": "issue",
-     "label": "huggingface/lerobot issue #2114: 64.75% then 71%, maintainer comment on needing more training",
-     "url": "https://github.com/huggingface/lerobot/issues/2114",
-     "role": "independent_attempt"
-    },
-    {
-     "type": "issue",
-     "label": "huggingface/lerobot issue #2156: LIBERO-Goal only, ~75% (n_action_steps=50) vs ~90% (n_action_steps=10); maintainer describes multiple training runs",
-     "url": "https://github.com/huggingface/lerobot/issues/2156",
-     "role": "independent_attempt"
-    },
-    {
-     "type": "other",
-     "label": "Hugging Face model card lerobot/pi0_libero_finetuned: no four-suite score table found",
-     "url": "https://huggingface.co/lerobot/pi0_libero_finetuned",
-     "role": "adjacent"
-    }
-   ],
-   "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
-   "checks": {
-    "task_match": "Issue #2114 uses the LIBERO suites; #2156 covers LIBERO-Goal only. The four-suite target is unverified.",
-    "setup": "Settings differ between runs (see summary); checkpoint is the published pi0 LIBERO model.",
-    "author_overlap": "None identified in the cited issues."
-   }
-  },
-  {
-   "id": "CL-0004",
-   "title": "OpenVLA-OFT reaches 97.1% average success on LIBERO",
-   "claim": "OpenVLA-OFT with task-specific policies reaches 97.1% average success across the four LIBERO suites (97.6% on LIBERO-Spatial), averaged over three random seeds per the authors; a single policy trained on all four suites scores 96.8%.",
-   "method": "OpenVLA-OFT",
-   "benchmark": "LIBERO",
-   "source": {
-    "label": "openvla-oft LIBERO.md",
-    "url": "https://github.com/moojink/openvla-oft/blob/main/LIBERO.md"
-   },
-   "paper": null,
-   "status": "partially_replicated",
-   "summary": "Mixed, with a setup explanation. A third-party LeRobot port evaluated the released checkpoints and reported 96.85% average over 500 episodes per suite against 97.1% in the paper (before a precision fix the port's author notes). In issue #150, one user ran 50 episodes per task with seed 7 on an RTX 4090 and got 95.8% average, with Spatial at 93.2% against 97.6%; another commenter reported reaching about 99% on Spatial after reinstalling with mujoco==3.3.2. In issue #128, users evaluating the released checkpoints reported much lower Spatial results (56.6% and 58.0%) and the thread discusses the MuJoCo version, which one commenter says changes floor rendering. This ledger did not read the thread through to a confirmed resolution. Taken together: the headline is approached by some independent runs and missed badly by others, and results appear sensitive to the simulator version. All figures here come from user reports and a port's README, not controlled replications.",
-   "evidence": [
-    {
-     "type": "repo",
-     "label": "tc-huang/lerobot-policy-openvla-oft: 96.85% average vs 97.1% in the paper, 500 episodes per suite",
-     "url": "https://github.com/tc-huang/lerobot-policy-openvla-oft",
-     "role": "independent_attempt"
-    },
-    {
-     "type": "issue",
-     "label": "moojink/openvla-oft issue #150: 95.8% average with Spatial 93.2%; a commenter reports ~99% Spatial after pinning mujoco 3.3.2",
-     "url": "https://github.com/moojink/openvla-oft/issues/150",
-     "role": "independent_attempt"
-    },
-    {
-     "type": "issue",
-     "label": "moojink/openvla-oft issue #128: Spatial 56.6% and 58.0% on released checkpoints; MuJoCo version discussed",
-     "url": "https://github.com/moojink/openvla-oft/issues/128",
-     "role": "independent_attempt"
-    }
-   ],
-   "last_checked": "2026-11-25",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
-   "checks": {
-    "task_match": "Same LIBERO suites as the authors' LIBERO.md.",
-    "setup": "Port to LeRobot and user runs on released checkpoints; setups differ from the authors' own.",
-    "author_overlap": "None identified: attempts are by third-party users and a third-party port."
-   }
-  },
-  {
-   "id": "CL-0005",
-   "title": "Octo out of the box averages 29% higher success than RT-1-X across three robot setups",
-   "claim": "Zero-shot with language instructions, the released Octo model averages a 29% higher success rate than RT-1-X across three robot embodiments and setups, and performs similarly to RT-2-X on the tested WidowX and RT-1 robot tasks. 10 trials per task, two tasks per robot, tasks drawn from the pretraining distribution.",
-   "method": "Octo",
-   "benchmark": "OXE zero-shot multi-robot eval (BridgeV2 WidowX, Google robot)",
-   "source": {
-    "label": "Octo paper, Section IV-A and Fig. 4 (arXiv:2405.12213v2)",
-    "url": "https://arxiv.org/abs/2405.12213"
-   },
-   "paper": "https://arxiv.org/abs/2405.12213",
-   "status": "untested",
-   "summary": "No independent reproduction of this exact three-setup comparison was found. The nearest follow-up is SIMPLER (arXiv:2405.05941), a paired sim-and-real evaluation benchmark, but it shares authors with Octo (Pertsch, Mees, Walke, Levine, Finn, Vuong, Xiao appear on both papers) and evaluates different tasks, so it is not an independent rerun. The real numbers it aggregates for four BridgeV2 WidowX tasks (Octo-Base 33.3% / 25.0% / 0% / 25.0% vs RT-1-X 0% on all four) re-cite the original teams' own evaluations, and its simulated scores for the released Octo checkpoints fall far below the real numbers (e.g. Google robot move-near 4.2% sim vs 35.0% real), a real-to-sim gap the SIMPLER authors document. Independent attempts adjacent to the claim: one user's pre-training rerun at batch 128 vs 2048 reported much worse SIMPLER scores (issue #151, unanswered); another user's custom-sim fine-tune got 60% success with language goals but 0% with image goals, while the paper reports goal images ahead of language by 25% on WidowX tasks (issue #157, custom environment). Neither re-runs the paper's real-robot protocol.",
-   "evidence": [
-    {
-     "type": "paper",
-     "label": "SIMPLER paper (arXiv:2405.05941): paired sim-and-real evaluation; shares authors with Octo, so not independent",
-     "url": "https://arxiv.org/abs/2405.05941",
-     "role": "adjacent"
-    },
-    {
-     "type": "repo",
-     "label": "SIMPLER repo: real and sim numbers per task for released Octo checkpoints (simpler_env/utils/metrics.py)",
-     "url": "https://github.com/simpler-env/SimplerEnv",
-     "role": "adjacent"
-    },
-    {
-     "type": "issue",
-     "label": "octo-models/octo issue #151: pre-training rerun at batch 128 vs 2048 reports much worse SIMPLER results; unanswered",
-     "url": "https://github.com/octo-models/octo/issues/151",
-     "role": "adjacent"
-    },
-    {
-     "type": "issue",
-     "label": "octo-models/octo issue #157: custom-sim fine-tune, language goal 60% vs image goal 0%, while the paper has goal images ahead",
-     "url": "https://github.com/octo-models/octo/issues/157",
-     "role": "adjacent"
-    },
-    {
-     "type": "repo",
-     "label": "octo-models/octo: released checkpoints and training pipeline",
-     "url": "https://github.com/octo-models/octo",
-     "role": "adjacent"
-    }
-   ],
-   "last_checked": "2026-11-26",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages",
-   "checks": {
-    "task_match": "No attempt found on the same three-setup comparison; SIMPLER uses different tasks.",
-    "setup": "Released checkpoints were run in simulation only.",
-    "author_overlap": "SIMPLER shares authors with Octo, so it is not independent."
-   }
-  },
-  {
-   "id": "CL-0006",
-   "title": "ACT reaches 50% on sim Cube Transfer and 20% on sim Bimanual Insertion with human demonstrations",
-   "claim": "In the ACT paper's Table I, trained on 50 human demonstrations in simulation, ACT reaches 50% final success on Cube Transfer and 20% on Bimanual Insertion (86% and 32% with scripted demonstrations), averaged over 3 seeds with 50 evaluations each.",
-   "method": "ACT (Action Chunking with Transformers)",
-   "benchmark": "ALOHA sim: Transfer Cube, Bimanual Insertion",
-   "source": {
-    "label": "ACT paper, Table I (arXiv:2304.13705)",
-    "url": "https://arxiv.org/abs/2304.13705"
-   },
-   "paper": "https://arxiv.org/abs/2304.13705",
-   "status": "partially_replicated",
-   "summary": "Third-party runs of ACT in the LeRobot port land in a similar range but are not like-for-like. The LeRobot team's model card reports 83.0% on Transfer Cube over 500 episodes for its own re-implementation, and 68.0% for weights trained with the original ACT repo and evaluated in LeRobot. It says the code was heavily refactored and that its environment may score success differently (success can register on the second gripper's contact with the cube), so those figures are not directly comparable to the paper's 50%. Later users report lower numbers with the current LeRobot code: about 50-60% over 500 episodes on Transfer Cube (issue #2605, which also cites 8% on Insertion against the 20% LeRobot reports), and 66% over 50 episodes in a separate run (issue #4168). One comment in #2605 reports 34% on a custom Isaac task against 90% with the original ACT code, which is a different environment. None of these is a 3-seed, 50-evaluation rerun in the paper's own environment, so seeds, evaluation counts, environment port and success definition all differ. The evidence supports the claim loosely on Transfer Cube and is mixed on Insertion. It does not show the paper's numbers are wrong.",
-   "evidence": [
-    {
-     "type": "other",
-     "role": "independent_attempt",
-     "label": "LeRobot model card lerobot/act_aloha_sim_transfer_cube_human: 83.0% (LeRobot re-implementation) and 68.0% (original-repo weights) over 500 episodes, with caveats on code and success definition",
-     "url": "https://huggingface.co/lerobot/act_aloha_sim_transfer_cube_human"
-    },
-    {
-     "type": "issue",
-     "role": "independent_attempt",
-     "label": "huggingface/lerobot issue #2605: ~50-60% over 500 episodes on Transfer Cube, reporter could not match the model card; Insertion 8% reported in a comment",
-     "url": "https://github.com/huggingface/lerobot/issues/2605"
-    },
-    {
-     "type": "issue",
-     "role": "independent_attempt",
-     "label": "huggingface/lerobot issue #4168: 66% on Transfer Cube, 50 evaluation episodes, 100k steps at batch size 8",
-     "url": "https://github.com/huggingface/lerobot/issues/4168"
-    }
-   ],
-   "checks": {
-    "task_match": "Same two ALOHA sim tasks by name, run in LeRobot's gym-aloha port rather than the authors' original environment; the Isaac comment in #2605 is a different environment and is not counted.",
-    "setup": "Single models, 50 or 500 evaluations, current LeRobot code; paper used 3 seeds x 50. LeRobot's success check may differ (see model card).",
-    "author_overlap": "None identified: the attempts come from the LeRobot team and third-party users, not the ACT paper's authors."
-   },
-   "last_checked": "2026-11-27",
-   "checked_by": "Claim Ledger agent, reviewed against the cited pages"
-  }
- ]
+  ]
 }

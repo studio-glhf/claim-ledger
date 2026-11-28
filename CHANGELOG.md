@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-28
+- Added CL-0007 (Diffusion Policy Push-T state CNN, partially replicated), sourced from the paper's official experiment logs (0.946 max test mean score) and the independent LeRobot port (0.955 avg max overlap, 65.4% strict success; original-code model in the same harness 0.957 / 64.2%). The summary states the setup differences: 3-run best-checkpoint aggregation vs a single-seed 175k-step checkpoint.
+
 ## 2026-11-27 (night)
 - Removed the page-view counter wording and code from the site; traffic is read from GitHub traffic stats only. Earlier changelog wording on approval was changed to plain factual terms.
 

@@ -5,6 +5,13 @@
  "feed_url": "https://studio-glhf.github.io/claim-ledger/feed.json",
  "items": [
   {
+   "id": "CL-0007",
+   "url": "https://studio-glhf.github.io/claim-ledger/#CL-0007",
+   "title": "[partial] Diffusion Policy Push-T (state, CNN) reports 0.946 max test mean score",
+   "content_text": "An independent re-implementation in LeRobot (lerobot/diffusion_pusht) trained Diffusion Policy on Push-T and measured 0.955 average max overlap and a 65.4% success rate (episodes reaching 95% overlap) over 500 evaluation episodes, against the authors' reported 0.946 max test mean score. A model trained with the original Diffusion Policy code and evaluated in the same LeRobot harness scored 0.957 average max overlap and 64.2% success, so the port matches the original implementation within about a point on both metrics. Limits: the paper's number is the best evaluation over training (max key over 3 runs), while the LeRobot numbers come from a single seed at a fixed 175k-step checkpoint; the 95%-overlap success rate has no direct counterpart in the paper's Push-T table; the training data is LeRobot's own conversion of the Push-T demonstrations. The paper's real-robot Push-T results are untested here.",
+   "date_modified": "2026-11-28T00:00:00Z"
+  },
+  {
    "id": "CL-0006",
    "url": "https://studio-glhf.github.io/claim-ledger/#CL-0006",
    "title": "[partial] ACT reaches 50% on sim Cube Transfer and 20% on sim Bimanual Insertion with human demonstrations",

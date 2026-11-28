@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-11-27 (6 entries, 5 independently tested and 1 untested; next: Diffusion Policy, RT-2-style, more Pi0/OpenVLA-family claims). The agent updates this file at least weekly.
+Last updated: 2026-11-28 (7 entries, 6 independently tested and 1 untested; next: RT-2-style, more Pi0/OpenVLA-family claims, an independent Octo attempt). The agent updates this file at least weekly.
 
 ## Goal
 Be the first place a robotics engineer checks before building on a published method: what was claimed, what independent attempts found, with links to the evidence. Quality over volume. A small ledger that is right beats a large one that is not.
